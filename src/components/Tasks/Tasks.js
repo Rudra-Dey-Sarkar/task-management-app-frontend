@@ -130,7 +130,7 @@ function Tasks({ isAdded }) {
                         />
                       </svg>}
                   </button>
-                  <p className='w-full h-full py-3 hover:cursor-pointer'>{task?.name}</p>
+                  <p className={`w-full h-full py-3 hover:cursor-pointer ${task?.status===true?"line-through":""}`}>{task?.name}</p>
                 </div>
                 <button 
                 className='text-red-500 font-semibold'
