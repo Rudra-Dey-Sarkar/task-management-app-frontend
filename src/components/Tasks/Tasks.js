@@ -80,11 +80,11 @@ function Tasks({ isAdded }) {
         <div className='px-2 w-full h-full'>
           {tasks?.map((task, index) =>
             <div
-              key={index}>
+              key={index}
+              onClick={() => EditTask(task?._id, task?.status===false?true:false, isEdited, setIsEdited)}>
               <div className={`flex justify-between px-3 border-b-2 border-[#35793729] hover:bg-[#35793729] `}>
                 <div className='flex justify-between gap-x-3 w-full h-full'>
-                  <button
-                    onClick={() => EditTask(task?._id, task?.status===false?true:false, isEdited, setIsEdited)}>
+                  <button>
                     {task?.status === false ?
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
