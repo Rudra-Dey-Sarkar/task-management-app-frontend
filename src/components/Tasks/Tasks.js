@@ -68,7 +68,6 @@ async function RemoveTask(id, tasks, setTasks) {
 function Tasks({ isAdded }) {
   const [tasks, setTasks] = useState();
   const [isEdited, setIsEdited] = useState(false);
-  const [isRemoved, setIsRemoved] = useState(false);
 
   useEffect(() => {
     ViewTasks(setTasks);
