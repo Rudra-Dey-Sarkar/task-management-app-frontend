@@ -43,7 +43,7 @@ async function EditTask(id, status ,isEdited, setIsEdited) {
   }
 }
 // Remove Task
-async function RemoveTask(id, isRemoved, setIsRemoved) {
+async function RemoveTask(id, tasks, setTasks) {
   try {
     const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/remove-task`, {
       method: "DELETE",
@@ -54,7 +54,7 @@ async function RemoveTask(id, isRemoved, setIsRemoved) {
     });
     
     if (response.ok) {
-      setIsRemoved(isRemoved===false ? true : false);
+      setTasks(tasks.filter(task => task._id !== id));
       toast.success("Task Deleted");
     } else {
       toast.error(response);
@@ -72,7 +72,7 @@ function Tasks({ isAdded }) {
 
   useEffect(() => {
     ViewTasks(setTasks);
-  }, [isAdded, isEdited, isRemoved]);
+  }, [isAdded, isEdited]);
 
   return (
     <div>
@@ -135,7 +135,7 @@ function Tasks({ isAdded }) {
                 </div>
                 <button 
                 className='text-red-500 font-semibold'
-                onClick={()=>RemoveTask(task?._id, isRemoved, setIsRemoved)}>Remove</button>
+                onClick={()=>RemoveTask(task?._id, tasks, setTasks)}>Remove</button>
               </div>
             </div>)}
 
