@@ -81,7 +81,8 @@ function Tasks({ isAdded }) {
           {tasks?.map((task, index) =>
             <div
               key={index}
-              onClick={() => EditTask(task?._id, task?.status===false?true:false, isEdited, setIsEdited)}>
+              onClick={() => EditTask(task?._id, task?.status===false ?true : false, isEdited, setIsEdited)}>
+                
               <div className={`flex justify-between px-3 border-b-2 border-[#35793729] hover:bg-[#35793729] `}>
                 <div className='flex justify-between gap-x-3 w-full h-full'>
                   <button>
