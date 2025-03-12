@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 async function AddTaskData(data, setAT, isAdded, setIsAdded, setIsLoading) {
   setIsLoading(true);
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/add-task`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

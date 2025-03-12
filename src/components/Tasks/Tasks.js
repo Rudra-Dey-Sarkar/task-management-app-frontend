@@ -19,18 +19,14 @@ async function ViewTasks(setTasks) {
 }
 // Edit Task
 async function EditTask(id, status ,isEdited, setIsEdited) {
-  const datas = {
-  id:id,
-  status:status
-  }
 
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/edit-task`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(datas)
+      body: JSON.stringify({status:status})
     });
     
     if (response.ok) {
@@ -45,7 +41,7 @@ async function EditTask(id, status ,isEdited, setIsEdited) {
 // Remove Task
 async function RemoveTask(id, tasks, setTasks) {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/remove-task`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_KEY}/tasks/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
